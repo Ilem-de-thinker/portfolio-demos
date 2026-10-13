@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: 'Fraunces', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', 'Manrope', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif {
+  font-family: 'Fraunces', 'Playfair Display', Georgia, serif !important;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', 'Manrope', -apple-system, sans-serif !important;
+}
+
+/* Explicit high-contrast typography rules: Light background has dark ink text, Dark background has crisp white/ivory text */
+.dark,
+[data-theme="dark"] {
+  color: #FFFFFF;
+}
+
+.dark .atelier-text-headline {
+  color: #FFFFFF !important;
+}
+
+.dark .atelier-text-body {
+  color: #EDE8E1 !important;
+}
+
+.dark .atelier-text-muted {
+  color: #D3CDC4 !important;
+}
+
+.light,
+:not(.dark) {
+  color: #161311;
+}
+
+:not(.dark) .atelier-text-headline {
+  color: #161311 !important;
+}
+
+:not(.dark) .atelier-text-body {
+  color: #3F3935 !important;
+}
+
+:not(.dark) .atelier-text-muted {
+  color: #635C57 !important;
+}

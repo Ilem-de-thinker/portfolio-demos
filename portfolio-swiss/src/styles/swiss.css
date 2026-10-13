@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.swiss-marquee-top {
+  display: inline-block;
+  animation-name: marquee;
+  animation-duration: var(--top-dur, 25s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--top-dir, normal);
+}
+
+.swiss-marquee-bottom {
+  display: inline-block;
+  animation-name: marqueeReverse;
+  animation-duration: var(--bot-dur, 28s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--bot-dir, normal);
+}

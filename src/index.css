@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: 'Fraunces', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', 'Manrope', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  :root {
+    --font-serif: 'Fraunces', 'Playfair Display', Georgia, serif;
+    --font-grotesk: 'Bricolage Grotesque', -apple-system, sans-serif;
+    --font-cinema: 'Outfit', 'Manrope', -apple-system, sans-serif;
+    --font-signal: 'Urbanist', 'Plus Jakarta Sans', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Swiss Brutal marquee styles driven by CSS custom variables */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.swiss-marquee-top {
+  display: inline-block;
+  animation-name: marquee;
+  animation-duration: var(--top-dur, 25s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--top-dir, normal);
+}
+
+.swiss-marquee-bottom {
+  display: inline-block;
+  animation-name: marqueeReverse;
+  animation-duration: var(--bot-dur, 28s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--bot-dir, normal);
+}
+
+.font-serif {
+  font-family: 'Fraunces', 'Playfair Display', Georgia, serif !important;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', 'Manrope', -apple-system, sans-serif !important;
+}
+
+.font-serif-editorial {
+  font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+}
+
+.font-grotesk-swiss {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.font-cinema-wide {
+  font-family: 'Outfit', 'Manrope', sans-serif;
+}
+
+.font-signal-tech {
+  font-family: 'Urbanist', 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-code-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.45);
+}
